@@ -35,7 +35,9 @@ apt-get install --install-recommends linux-generic-lts-vivid
 Original artticle from: https://help.ubuntu.com/community/aufsRootFileSystemOnUsbFlash
 
 for kernels >= 3.18 add overlay 
+
 for kernels < 3.18 add overlayfs 
+
 to \etc\initramfs-tools\modules 
 
 ```sh
@@ -56,26 +58,8 @@ You can chroot to the /mnt/root-ro to install updates
 
 # NAS disk consolidation by aufs
 /etc/fstab
+
 aufs manual: http://aufs.sourceforge.net/aufs3/man.html
-
-# transmission - torrents
-```sh
-apt-get install transmission-daemon
-service transmission-daemon stop
-nano /etc/transmission-daemon/settings.json
-```
-
-# Crashplan - offsite backups
-http://support.code42.com/CrashPlan/Latest/Configuring/Using_CrashPlan_On_A_Headless_Computer
-
-http://support.code42.com/CrashPlan/Latest/Configuring/Using_CrashPlan_On_A_Headless_Computer_Version_4.2_And_Earlier
-
-# System emails via Gmail ans sSMTP
-```sh
-apt-get install ssmtp
-nano /etc/ssmtp/ssmtp.conf
-nano /etc/ssmtp/revaliases
-```
 
 can be replaced by mergefs (user mode/fuse)
 ```sh
@@ -90,6 +74,25 @@ make install
 nano /etc/fstab
 ```
 /mnt/data/*  /storage  fuse.mergerfs  defaults,allow_other  0       0
+
+# transmission - torrents
+```sh
+apt-get install transmission-daemon
+service transmission-daemon stop
+nano /etc/transmission-daemon/settings.json
+```
+
+# Crashplan - offsite backups
+http://support.code42.com/CrashPlan/Latest/Configuring/Using_CrashPlan_On_A_Headless_Computer
+
+http://support.code42.com/CrashPlan/Latest/Configuring/Using_CrashPlan_On_A_Headless_Computer_Version_4.2_And_Earlier
+
+# System emails via Gmail and sSMTP
+```sh
+apt-get install ssmtp
+nano /etc/ssmtp/ssmtp.conf
+nano /etc/ssmtp/revaliases
+```
 
 # UPS
 ```sh
