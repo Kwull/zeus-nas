@@ -1,0 +1,43 @@
+#
+#  This fstab is in RAM, the real one can be found at /mnt/root-ro/etc/fstab
+#  The original entry for '/' and all swap files have been removed.  The new 
+#  entry for the read-only the real root fs follows. Write access can be 
+#  enabled using:
+#    sudo mount -o remount,rw /mnt/root-ro
+#  re-mounting it read-only is done using:
+#    sudo mount -o remount,ro /mnt/root-ro
+#
+
+/dev/disk/by-uuid/7e49cfe2-524a-463b-9011-46d2ed1964e2 /mnt/root-ro ext4 ro,relatime,data=ordered 0 0
+
+#
+#  remaining entries from the original /mnt/root-ro/etc/fstab follow.
+#
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+proc            /proc           proc    nodev,noexec,nosuid 0       0
+
+
+#move tmpfs to memory (for USB flash)
+#tmpfs /tmp tmpfs rw,size=512M,noatime 0 0
+#tmpfs /var/log tmpfs rw,noexec,size=64M 0 0
+#tmpfs /var/tmp tmpfs rw,size=64M 0 0
+#tmpfs /var/lib/sudo tmpfs rw,size=1M,uid=0,gid=0,mode=1700 0 0
+#tmpfs /var/lib/nagios3/spool tmpfs rw,size=4M 0 0
+#tmpfs /var/lib/nagios3/rw tmpfs rw,size=4M 0 0
+
+#NAS disks
+# NB: disk1 is the system disk (system disk can be moved to USB flash or SSD) - moved
+UUID=4382b225-86db-4401-9c5d-9040606f812d /media/disk1 ext4 defaults,noatime,nobootwait 0 2
+UUID=06391d3b-e722-424e-a681-1ba9d79dd163 /media/disk2 ext4 defaults,noatime,nobootwait 0 2
+#UUID=b0aee584-0d29-4747-ae96-2b1089264f14 /media/disk3 ext4 defaults,noatime,nobootwait 0 2
+UUID=59a38c9f-03de-4fcb-9b4a-bb4c1aea4b54 /media/disk4 ext4 defaults,noatime,nobootwait 0 2
+
+
+#AuFS consolidation
+none /media/nas aufs noauto,br:/media/disk1=rw:/media/disk2=rw:/media/disk4=rw,create=pmfsrr:10000000000,sum 0 0

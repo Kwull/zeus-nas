@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# backup Zeus root (USB Flash)
+#dd if=/dev/sdd of=/media/nas/Backups/Zeus/boot-sectors.img count=2048
+#fdisk -lu /dev/sdd >/media/nas/Backups/Zeus/partition-table.txt
+dump -0af /media/nas/Backups/Zeus/zeus.dump /dev/disk/by-uuid/7e49cfe2-524a-463b-9011-46d2ed1964e2 
+
+
+# restore
+# /mnt/new-filesystem; restore -rf /some-location/zeus.dump
+

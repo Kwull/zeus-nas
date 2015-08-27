@@ -1,0 +1,9 @@
+#########################################################
+#- Daemon Script Configuration for Serviio Media Server
+#- By Ian Laird
+#- /etc/default/serviio
+#########################################################
+
+NAME="Serviio Media Server"
+DAEMON="/media/nas/Serviio/bin/serviio.sh"    ## Update this to point at serviio_root/bin/serviio.sh
+SERVICE_ACCOUNT="root"                    ## change to an appropriate username, DON'T RUN UNDER ROOT!
