@@ -2,22 +2,26 @@
 Scripts, how-to, articles to configure zeus, etc...
 
 Features:
+- Samba - windows share
+- Serviio + serviio web console - DLNA server
+- transmission - torrents
+- Crashplan - offsite backups
+- Direct Connect with NCDC
+
+System:
 - Hardware 
 - vivid kernel on ubuntu 14.04
 - Read-only root file system locate on USB Flash drive
 - NAS disk consolidation by aufs
 - HDD S.M.A.R.T Check
-- Samba - windows share
-- Serviio + serviio web console - DLNA server
-- transmission - torrents
-- Crashplan - offsite backups
 - System emails via Gmail and sSMTP
 - UPS 
 - Webmin - web config
 - NewRelic for server monitoring
+
+How to:
 - Add a HDD
 - How to remove duplicates
-- Direct Connect with NCDC
 
 # Hardware 
 http://n40l.wikia.com/wiki/HP_MicroServer_N40L_Wiki
