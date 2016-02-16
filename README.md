@@ -176,6 +176,14 @@ add-apt-repository ppa:webupd8team/java
 apt-get update
 apt-get install oracle-java8-installer
 ```
+
+Install latest ffmpeg
+```sh
+sudo add-apt-repository ppa:kirillshkrogalev/ffmpeg-next
+sudo apt-get update
+sudo apt-get install ffmpeg
+```
+
 WebUI: https://github.com/SwoopX/Web-UI-for-Serviio/tree/Serviio-1.5
 
 # Add a HDD
