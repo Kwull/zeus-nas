@@ -205,9 +205,13 @@ Partition number? 1
 (parted) quit
 ```
 
+Using mkfs -t ext4 -N iNumberOfINodes /dev/XdY where iNumberOfINodes is a 32-bit number so the maximum possible number of inodes on any ext2/3/4 file system is 2^32-1, or 4,294,967,295 (~4 billion).
+
+mkfs.ext4 -m 0 -N 1294967295 /dev/sdb1
+
 ```sh
 mkdir /media/diskN
-mkfs.ext4 -m 2 -T largefile4 /dev/sdb1
+mkfs.ext4 -m 0 -T largefile4 /dev/sdb1
 blkid
 nano /etc/fstab
 ```
